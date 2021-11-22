@@ -39,7 +39,7 @@ class SearchWidget extends StatelessWidget {
         const CardWidget(
           height: 50,
           width: 50,
-          child: Icon(Icons.qr_code),
+          child: Icon(Icons.qr_code_scanner_outlined),
         ),
       ],
     );
