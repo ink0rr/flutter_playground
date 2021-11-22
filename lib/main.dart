@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_playground/routes.dart';
 import 'package:flutter_playground/screen/home/home_screen.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -27,7 +28,8 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.grey,
         textTheme: GoogleFonts.notoSansTextTheme(),
       ),
-      home: const HomeScreen(),
+      initialRoute: HomeScreen.routeName,
+      routes: routes,
     );
   }
 }
