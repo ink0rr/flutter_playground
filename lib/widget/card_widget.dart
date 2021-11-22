@@ -26,9 +26,9 @@ class CardWidget extends StatelessWidget {
         boxShadow: const [
           BoxShadow(
             color: Colors.black12,
-            blurRadius: 5,
-            spreadRadius: 3,
-            offset: Offset(0, 5),
+            blurRadius: 12,
+            spreadRadius: 4,
+            offset: Offset(0, 0.5),
           ),
         ],
       ),
