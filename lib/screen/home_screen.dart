@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_playground/widget/banner_widget.dart';
 import 'package:flutter_playground/widget/search_widget.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -13,7 +14,9 @@ class HomeScreen extends StatelessWidget {
             padding: const EdgeInsets.all(16),
             child: Column(
               children: const [
-                SearchWidget()
+                SearchWidget(),
+                SizedBox(height: 24),
+                BannerWidget(),
               ],
             ),
           ),
