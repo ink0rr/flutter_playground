@@ -17,7 +17,7 @@ class SearchWidget extends StatelessWidget {
             ),
             child: Row(
               children: const [
-                Icon(Icons.zoom_in_outlined),
+                Icon(Icons.search),
                 SizedBox(
                   width: 16,
                 ),
