@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_playground/screen/home_screen/search_widget.dart';
-
-import 'banner_widget.dart';
+import 'package:flutter_playground/screen/home/widgets/banner_widget.dart';
+import 'package:flutter_playground/screen/home/widgets/search_widget.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
