@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 
 import 'category_list_item.dart';
 
@@ -40,7 +39,7 @@ class CategoryWidget extends StatelessWidget {
             shrinkWrap: false,
             scrollDirection: Axis.horizontal,
             itemBuilder: (BuildContext context, int index) {
-              return CategoryListItemWidget(title: 'Category ${index + 1}');
+              return CategoryListItem(title: 'Category ${index + 1}');
             },
           ),
         )

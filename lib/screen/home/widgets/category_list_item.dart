@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class CategoryListItemWidget extends StatelessWidget {
-  const CategoryListItemWidget({
+class CategoryListItem extends StatelessWidget {
+  const CategoryListItem({
     Key? key,
     required this.title,
   }) : super(key: key);
