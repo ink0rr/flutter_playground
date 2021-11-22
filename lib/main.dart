@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_playground/screen/home_screen.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -11,6 +12,14 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    SystemUiOverlayStyle style = SystemUiOverlayStyle.light.copyWith(
+      statusBarColor: Colors.transparent,
+      statusBarBrightness: Brightness.light,
+      statusBarIconBrightness: Brightness.dark,
+      systemNavigationBarColor: Colors.white,
+      systemNavigationBarIconBrightness: Brightness.dark,
+    );
+    SystemChrome.setSystemUIOverlayStyle(style);
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
@@ -23,6 +32,7 @@ class MyApp extends StatelessWidget {
         // or simply save your changes to "hot reload" in a Flutter IDE).
         // Notice that the counter didn't reset back to zero; the application
         // is not restarted.
+        canvasColor: Colors.white,
         primarySwatch: Colors.grey,
         textTheme: GoogleFonts.notoSansTextTheme()
       ),
