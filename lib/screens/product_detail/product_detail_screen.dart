@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_playground/screens/product_detail/widgets/add_to_cart_widget.dart';
 import 'package:flutter_playground/screens/product_detail/widgets/choose_size_widget.dart';
+import 'package:flutter_playground/screens/product_detail/widgets/product_desc_widget.dart';
 import 'package:flutter_playground/screens/product_detail/widgets/product_info_widget.dart';
 
 class ProductDetailScreen extends StatelessWidget {
@@ -23,6 +24,7 @@ class ProductDetailScreen extends StatelessWidget {
             ),
             const ProductInfoWidget(),
             const ChooseSizeWidget(),
+            const ProductDescWidget(),
           ],
         ),
       ),
