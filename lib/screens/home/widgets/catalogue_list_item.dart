@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_playground/screens/product_detail/product_detail_screen.dart';
 
 class CatalogueListItem extends StatelessWidget {
   const CatalogueListItem({Key? key}) : super(key: key);
@@ -7,7 +8,7 @@ class CatalogueListItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        //do something
+        Navigator.pushNamed(context, ProductDetailScreen.routeName);
       },
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
