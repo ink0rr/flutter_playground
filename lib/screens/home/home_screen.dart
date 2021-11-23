@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_playground/widget/my_bottom_nav_bar.dart';
+import 'package:flutter_playground/widgets/my_bottom_nav_bar.dart';
 
 import 'widgets/banner_widget.dart';
 import 'widgets/catalogue_widget.dart';

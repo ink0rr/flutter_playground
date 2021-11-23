@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_playground/routes.dart';
-import 'package:flutter_playground/screen/home/home_screen.dart';
+import 'package:flutter_playground/screens/home/home_screen.dart';
 import 'package:flutter_playground/themes.dart';
 
 void main() {
