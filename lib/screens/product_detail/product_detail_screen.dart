@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_playground/screens/product_detail/widgets/add_to_cart_widget.dart';
+import 'package:flutter_playground/screens/product_detail/widgets/product_info_widget.dart';
 
 class ProductDetailScreen extends StatelessWidget {
   const ProductDetailScreen({Key? key}) : super(key: key);
@@ -19,6 +20,7 @@ class ProductDetailScreen extends StatelessWidget {
               height: 360,
               fit: BoxFit.cover,
             ),
+            const ProductInfoWidget()
           ],
         ),
       ),
