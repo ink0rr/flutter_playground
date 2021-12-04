@@ -11,7 +11,6 @@ class ProductModelDataSource {
 
     try {
       var response = await client.get(Uri.parse(url));
-      print(response.statusCode);
       if (response.statusCode == 200) {
         var data = json.decode(response.body);
         return List<ProductModel>.from(

@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_playground/models/product_model.dart';
 
 import 'widgets/add_to_cart_widget.dart';
 import 'widgets/choose_size_widget.dart';
 import 'widgets/product_desc_widget.dart';
 import 'widgets/product_info_widget.dart';
 
+// TODO: Refactor code
 class ProductDetailScreen extends StatelessWidget {
   const ProductDetailScreen({Key? key}) : super(key: key);
 
@@ -12,6 +14,9 @@ class ProductDetailScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final ProductDetailScreenArgs args =
+        ModalRoute.of(context)!.settings.arguments as ProductDetailScreenArgs;
+
     return Scaffold(
       appBar: AppBar(),
       body: SingleChildScrollView(
@@ -19,13 +24,13 @@ class ProductDetailScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Image.network(
-              'https://img.freepik.com/free-photo/excited-white-girl-bright-stylish-glasses-posing-pink-dreamy-curly-woman-playing-with-her-ginger-hair-laughing_197531-11045.jpg',
+              args.product.imageLink,
               height: 360,
               fit: BoxFit.cover,
             ),
-            const ProductInfoWidget(),
+            ProductInfoWidget(product: args.product),
             const ChooseSizeWidget(),
-            const ProductDescWidget(),
+            ProductDescWidget(product: args.product),
           ],
         ),
       ),
@@ -34,4 +39,10 @@ class ProductDetailScreen extends StatelessWidget {
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
   }
+}
+
+class ProductDetailScreenArgs {
+  final ProductModel product;
+
+  ProductDetailScreenArgs({required this.product});
 }

@@ -1,7 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_playground/models/product_model.dart';
 
+// TODO: Refactor code
 class ProductInfoWidget extends StatelessWidget {
-  const ProductInfoWidget({Key? key}) : super(key: key);
+  final ProductModel product;
+
+  const ProductInfoWidget({
+    Key? key,
+    required this.product,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -13,24 +20,25 @@ class ProductInfoWidget extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: const [
-                  Text(
-                    'Nama Produk',
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 20,
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      product.name,
+                      style: const TextStyle(
+                        fontSize: 20,
+                      ),
                     ),
-                  ),
-                  Text(
-                    'Rp50,000',
-                    style: TextStyle(
-                      fontWeight: FontWeight.w500,
-                      fontSize: 20,
+                    Text(
+                      '${product.currency} ${product.priceSign}${product.price}',
+                      style: const TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 20,
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
               const Icon(
                 Icons.favorite_border,
@@ -42,10 +50,10 @@ class ProductInfoWidget extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16),
           child: Row(
-            children: const [
-              Text('50 Terjual'),
-              SizedBox(width: 8),
-              Text('⭐⭐⭐⭐⭐ 5'),
+            children: [
+              const Text('50 Terjual'),
+              const SizedBox(width: 8),
+              Text('⭐⭐⭐⭐⭐ ${product.rating ?? 0}'),
             ],
           ),
         ),

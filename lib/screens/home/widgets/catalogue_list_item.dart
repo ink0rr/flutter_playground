@@ -1,22 +1,36 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_playground/models/product_model.dart';
 import 'package:flutter_playground/screens/product_detail/product_detail_screen.dart';
 
 class CatalogueListItem extends StatelessWidget {
-  const CatalogueListItem({Key? key}) : super(key: key);
+  const CatalogueListItem({
+    Key? key,
+    required this.product,
+  }) : super(key: key);
+
+  final ProductModel product;
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        Navigator.pushNamed(context, ProductDetailScreen.routeName);
+        Navigator.pushNamed(
+          context,
+          ProductDetailScreen.routeName,
+          arguments: ProductDetailScreenArgs(product: product),
+        );
       },
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        children: const [
-          _CatalogueThumbnail(),
-          SizedBox(height: 8),
-          _CatalogueDetail(),
-          SizedBox(height: 8),
+        children: [
+          _CatalogueThumbnail(
+            imageLink: product.imageLink,
+          ),
+          const SizedBox(height: 8),
+          _CatalogueDetail(
+            product: product,
+          ),
+          const SizedBox(height: 8),
         ],
       ),
     );
@@ -24,8 +38,12 @@ class CatalogueListItem extends StatelessWidget {
 }
 
 class _CatalogueThumbnail extends StatelessWidget {
-  const _CatalogueThumbnail({Key? key}) : super(key: key);
+  const _CatalogueThumbnail({
+    Key? key,
+    required this.imageLink,
+  }) : super(key: key);
 
+  final String imageLink;
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -33,7 +51,7 @@ class _CatalogueThumbnail extends StatelessWidget {
         ClipRRect(
           borderRadius: BorderRadius.circular(12),
           child: Image.network(
-            'https://img.freepik.com/free-photo/excited-white-girl-bright-stylish-glasses-posing-pink-dreamy-curly-woman-playing-with-her-ginger-hair-laughing_197531-11045.jpg',
+            imageLink,
             fit: BoxFit.fill,
           ),
         ),
@@ -56,38 +74,43 @@ class _CatalogueThumbnail extends StatelessWidget {
 }
 
 class _CatalogueDetail extends StatelessWidget {
-  const _CatalogueDetail({Key? key}) : super(key: key);
+  final ProductModel product;
+
+  const _CatalogueDetail({
+    Key? key,
+    required this.product,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Text(
-          'Blazer Office Dress',
+        Text(
+          product.name,
           maxLines: 2,
           overflow: TextOverflow.ellipsis,
         ),
         Row(
-          children: const [
+          children: [
             Expanded(
               child: Text(
-                'Rp50.000',
+                '${product.currency} ${product.priceSign}${product.price}',
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,
-                style: TextStyle(
+                style: const TextStyle(
                   fontWeight: FontWeight.bold,
                 ),
               ),
             ),
-            Text(
+            const Text(
               '50 terjual',
               style: TextStyle(fontSize: 10, color: Colors.grey),
             ),
-            SizedBox(width: 8),
+            const SizedBox(width: 8),
             Text(
-              '⭐ 4.5',
-              style: TextStyle(fontSize: 10, color: Colors.black),
+              '⭐ ${product.rating ?? 0}',
+              style: const TextStyle(fontSize: 10, color: Colors.black),
             ),
           ],
         ),
