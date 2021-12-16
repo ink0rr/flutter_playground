@@ -1,4 +1,4 @@
-# flutter_playground
+# gdsc_flutter_workshop
 
 A new Flutter project.
 
